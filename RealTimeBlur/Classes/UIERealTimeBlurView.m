@@ -84,6 +84,13 @@ const CGFloat UIERealTimeBlurViewTintColorAlpha = 0.1;
     }
     return self;
 }
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    if (UIEDeviceSystemMajorVersion() > 6) {
+        _nativeBlurView.frame=self.bounds;
+    }
+}
 
 - (void)setTintColor:(UIColor*)tintColor
 {
